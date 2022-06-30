@@ -29,7 +29,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/JordanBrockerRudow/notesapp">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="docs/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Notes App</h3>
@@ -91,14 +91,9 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
+* [Django](https://djangoproject.com)
 * [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
 * [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
