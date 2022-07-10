@@ -1,0 +1,28 @@
+{% load notes_extras crispy_forms_tags %}
+<h4>Comments</h4>
+{% for comment in post.comments.all %}
+  {% div cls="row border-top pt-2" %}
+      {% div cls="col" %}
+          <h5>Posted by {{ comment.creator }} at {{ comment.created_at|date:"M, d Y h:i" }}</h5>
+      {% div cls="end" %}
+  {% div cls="end" %}
+  {% div cls="row border-bottom" %}
+      {% div cls="col" %}
+          <p>{{ comment.content }}</p>
+      {% div cls="end" %}
+  {% div cls="end" %}
+  {% empty %}
+      {% div cls="row border-top border-bottom" %}
+          {% div cls="col" %}
+              <p>No comments.</p>
+          {% div cls="end" %}
+      {% div cls="end" %}
+  {% endfor %}
+  {% if request.user.is_active %}
+  {% div cls="row mt-4" %}
+      {% div cls="col" %}
+          <h4>Add Comment</h4>
+          {% crispy comment_form %}
+      {% div cls="end" %}
+  {% div cls="end" %}
+{% endif %}
