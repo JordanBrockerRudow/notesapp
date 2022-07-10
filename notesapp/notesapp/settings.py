@@ -5,6 +5,8 @@ from configurations import values
 import dj_database_url
 import logging
 
+from .secret import SECRET_KEY
+
 from datetime import timedelta
 
 
@@ -12,12 +14,12 @@ class Dev(Configuration):
     # Build paths inside the project like this: BASE_DIR / 'subdir'.
     BASE_DIR = Path(__file__).resolve().parent.parent
 
+    # Admin Settings
+    ADMINS = [("Notesapp Admin", "Admin@notesapp.com")]
+
 
     # Quick-start development settings - unsuitable for production
     # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-    # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = 'django-insecure-8wi4ao)=bt10@b*-=0$yu&5ezj8_57fztt8)0as(qtp@fdf3n='
 
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = values.BooleanValue(True)
@@ -37,8 +39,14 @@ class Dev(Configuration):
         'django.contrib.messages',
         'django.contrib.sites',
         'django.contrib.staticfiles',
-        'django_registration',
-        'debug_toolbar'
+        'notes.apps.NotesConfig',
+        'crispy_forms',
+        'crispy_bootstrap5',
+        'debug_toolbar',
+        'allauth',
+        'allauth.account',
+        'allauth.socialaccount',
+        'allauth.socialaccount.providers.google',
     ]
 
     MIDDLEWARE = [
