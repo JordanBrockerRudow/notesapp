@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags notes_extras %}
+{% block title %}Activation Complete{% endblock %}
+{% block content %}
+{% div cls="row justify-content-center" %}
+    {% div cls="col col-md-6" %}
+        <h2>Activation Complete</h2>
+        <p>Your account is now activated! You can now log in and use Notesapp.</p>
+        <p><a href="{% url "login" %}">Log In</a></p>
+    {% div cls="end" %}
+{% div cls="end" %}
+{% endblock %}

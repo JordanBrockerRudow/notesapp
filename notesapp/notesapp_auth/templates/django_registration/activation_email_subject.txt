@@ -1,0 +1,1 @@
+Notesapp account Activation - Key will expire in {{ expiration_days }} days
