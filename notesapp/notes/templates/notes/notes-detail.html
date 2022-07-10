@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load notes_extras cache %}
+{% block content %}
+<!-- Notes Title -->
+<h2>{{ post.title }}</h2>
+<!-- Author and Date of Post -->
+{% div cls="row" %}
+    {% div cls="col" %}
+        {% include "notes/post-byline.html" %}
+    {% div cls="end" %}
+{% div cls="end" %}
+<!-- Hero Image -->
+{% if post.hero_image %}
+    {% div cls="row" %}
+        {% div cls="col" %}
+            <img class="img-fluid" src="{{ post.hero_image.url }}">
+        {% div cls="end" %}
+    {% div cls="end" %}
+{% endif %}
+<!-- Post Content (main body of text) -->
+{% div cls="row" %}
+    {% div cls="col" %}
+        {{ post.content|safe }}
+    {% div cls="end" %}
+{% div cls="end" %}
+<br>
+<!-- Author Profile Model and Bio -->
+{% if post.author.profile %}
+    {% div cls="row" %}
+        {% div cls="col" %}
+            <h4>About the author</h4>
+            <p>{{ post.author.profile.bio }}</p>
+        {% div cls="end" %}
+    {% div cls="end" %}
+{% endif %}
+
+<!-- Comment Form -->
+{% include "notes/post-comments.html" %}
+
+<!-- Most Recent Notes Posts -->
+{% div cls="row" %}
+    {% div cls="col" %}
+        <!-- Cache Recent Posts for One Hour -->
+        {% cache 3600 recent_posts post %}
+            {% recent_posts post %}
+        {% endcache %}
+    {% div cls="end" %}
+{% div cls="end" %}
+{% endblock %}
