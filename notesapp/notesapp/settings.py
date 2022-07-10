@@ -47,9 +47,14 @@ class Dev(Configuration):
         'allauth.account',
         'allauth.socialaccount',
         'allauth.socialaccount.providers.google',
+        'drf_yasg',
+        'django_filters',
+        'versatileimagefield',
     ]
 
+
     MIDDLEWARE = [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
@@ -57,7 +62,6 @@ class Dev(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'debug_toolbar.middleware.DebugToolbarMiddleware'
     ]
 
     # Debug's toolbar is only shown if IP Address is listed in Django's INTERNAL_IPS setting
@@ -71,7 +75,7 @@ class Dev(Configuration):
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': [],
+            'DIRS': [BASE_DIR/'templates',],
             'APP_DIRS': True,
             'OPTIONS': {
                 'context_processors': [
@@ -94,14 +98,8 @@ class Dev(Configuration):
 
     # Database
     # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-
+    # How we would make use of different databases with django configurations
+    DATABASES = values.DatabaseURLValue(f"sqlite:///{BASE_DIR}/db.sqlite3")
     # Admin settings
     # TO DO - Add Email
     ADMINS = [("Jordan", "jordan@email.com")]
@@ -145,6 +143,9 @@ class Dev(Configuration):
     ACCOUNT_EMAIL_REQUIRED = True
     ACCOUNT_USERNAME_REQUIRED = False
     ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+    # Activation key valid for a week
+    ACCOUNT_ACTIVATION_DAYS = 7
 
 
     # Internationalization
@@ -270,6 +271,54 @@ class Dev(Configuration):
         }
     }
 
+    # Logging Configuration Settings
+    # This config sets up one handler with the ID console.
+    # The handler will log to the console.
+
+    LOGGING = {
+            "version": 1,
+            "disable_existing_loggers": False,
+            "filters": {
+                    "require_debug_false": {
+                            # Error Emails are only sent in production enviroments
+                            "()": "django.utils.log.RequireDebugFalse",
+                    },
+            },
+            "formatters": {
+                    "verbose": {
+                            "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+                            # Outputs the log level, time of the message (asctime), name of
+                            # the module that generated the message, the process ID,
+                            # thread ID, and lastly, the message.
+                            "style": "{",
+                    },
+            },
+            "handlers": {
+                    "console": {
+                            "class": "logging.StreamHandler",
+                            "stream": "ext://sys.stdout",
+                            "formatter": "verbose",
+                    },
+                    "mail_admins": {
+                            "level": "ERROR",
+                            "class": "django.utils.log.AdminEmailHandler",
+                            "filters": ["require_debug_false"],
+                    },
+            },
+            "loggers": {
+                    # Django.request so that only unhandled exceptions get sent.
+                    "django.request": {
+                            "handlers": ["mail_admins"],
+                            "level": "ERROR",
+                            # Add propagate: True; so the stack traces are logged to the console during development.
+                            "propagate": True,
+                    },
+            },
+            "root": {
+                    "handlers": ["console"],
+                    "level": "DEBUG",
+            },
+    }
 
     # Production
     class Prod(Dev):
