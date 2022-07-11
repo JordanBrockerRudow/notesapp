@@ -40,7 +40,7 @@ def author_details(author, current_user):
 
 # Fetch the five most recent notes
 # Exclude current post being viewed
-@register.inclusion_tag("notes/post-list.html")
+@register.inclusion_tag("notes/notes-list.html")
 def recent_posts(post):
     posts = Post.objects.exclude(pk=post.pk)[:5]
     # Log call for 'recent posts' - template fragment caching

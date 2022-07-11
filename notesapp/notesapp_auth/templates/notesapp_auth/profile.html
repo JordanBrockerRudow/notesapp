@@ -2,8 +2,8 @@
 {% load notes_extras %}
 {% block title %}User Profile{% endblock %}
 {% block content %}
-{% row %}
-    {% col %}
+{% div cls="row" %}
+    {% div cls="col" %}
         <p>Logged in as {{ request.user }}.</p>
         <p><a href="{% url "logout" %}">Log Out</a></p>
     {% div cls="end" %}

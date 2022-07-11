@@ -54,11 +54,11 @@ def post_detail(request, slug):
     else:
         comment_form = None
 
-    return render(request, "notes/post-detail.html", {"post": post, "comment_form": comment_form})
+    return render(request, "notes/notes-detail.html", {"post": post, "comment_form": comment_form})
 
 
 def post_table(request):
-    # Updated to include reversed post-list
+    # Updated to include reversed notes-list
     return render(
-        request, "notes/post-table.html", {"post_list_url": reverse("post-list")}
+        request, "notes/notes-table.html", {"post_list_url": reverse("notes-list")}
     )
