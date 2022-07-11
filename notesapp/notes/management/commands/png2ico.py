@@ -1,3 +1,4 @@
+from distutils.log import error
 from django.core.management.base import BaseCommand
 from PIL import Image
 
@@ -24,13 +25,23 @@ class Command(BaseCommand):
     help = 'Converts PNG to ICO'
 
     def add_arguments(self, parser):
-        parser.add_argument('name', action='store', help='Name of PNG file to convert')
-        parser.add_argument('-f', '--favicon', type=bool, help='Save as favicon')
+        parser.add_argument('filename', nargs='+', type=str, help='Name of PNG file to convert')
+        parser.add_argument('--favicon', action='store_true', help='Convert to favicon. Only saves size (16x16).')
 
   
-    def handle(self, *args, **kwargs):
-        f = kwargs['favicon']
-        if not f:
-            f = False
+    def handle(self, *args, **options):
+        for name in options['filename']:
+            try:
+                convert = ConvertImage(filename=name)
+                if options['favicon']:
+                    convert.create_favicon()
+                    self.stdout.write(self.style.SUCCESS('Success! Favicon created.'))
+                else:
+                    convert.create_icon()
+                    self.stdout.write(self.style.SUCCESS('Success! Icon created.'))
 
+            except Exception as e:
+                print('ERROR!')
+                print(e)
+        
 
