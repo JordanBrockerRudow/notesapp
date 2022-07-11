@@ -8,16 +8,11 @@ class ConvertImage():
     icon_sizes = [(16, 16), (24, 24), (32, 32), (48, 48), (64, 64), (128, 128), (255, 255)]
     
     def __init__(self, filename):
-        self.filename = filename
-        self.ico_name = filename.split('.')[0] + '.ico'
-        self.img = Image.open(filename)
-
-    def create_path(self, name):
-        return os.path.normpath(name)
+        self.ico_name = os.path.normpath((filename.split('.')[0] + '.ico'))
+        self.img = Image.open(os.path.normpath(filename))
 
     def create_favicon(self):
-        self.create_path('')
-        self.img.save(ico_name, sizes=[(16, 16)])
+        self.img.save(self.ico_name, sizes=[(16, 16)])
 
     def create_icon(self):
         #img = Image.open(self.filename)
@@ -37,6 +32,7 @@ class Command(BaseCommand):
         for name in options['filename']:
             try:
                 name = str(BASE_DIR) + '/' + name
+                filepath = os.path.normpath(name)
                 convert = ConvertImage(filename=name)
                 if options['favicon']:
                     convert.create_favicon()
