@@ -132,3 +132,4 @@ utils
 
 # Project secret
 secret.py
+*.Identifier
