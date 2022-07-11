@@ -29,7 +29,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/JordanBrockerRudow/notesapp">
-    <img src="docs/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="docs/images/logo.PNG" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Notes App</h3>
