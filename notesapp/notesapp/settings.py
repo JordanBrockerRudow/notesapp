@@ -26,6 +26,8 @@ class Dev(Configuration):
 
     ALLOWED_HOSTS = ['*']
 
+    SECRET_KEY = SECRET_KEY
+
 
     # Application definition
 
@@ -40,6 +42,7 @@ class Dev(Configuration):
         'django.contrib.sites',
         'django.contrib.staticfiles',
         'notes.apps.NotesConfig',
+        'notesapp_auth.apps.NotesappAuthConfig',
         'crispy_forms',
         'crispy_bootstrap5',
         'debug_toolbar',
@@ -320,8 +323,8 @@ class Dev(Configuration):
             },
     }
 
-    # Production
-    class Prod(Dev):
-        DEBUG = False
-        # Prevent secret keys committed in code, from being used in production
-        SECRET_KEY = values.SecretValue()
+# Production
+class Prod(Dev):
+    DEBUG = False
+    # Prevent secret keys committed in code, from being used in production
+    SECRET_KEY = values.SecretValue()
