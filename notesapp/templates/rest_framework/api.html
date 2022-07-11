@@ -1,5 +1,6 @@
 {# https://www.django-rest-framework.org/topics/browsable-api/#customizing #}
 {% extends "rest_framework/base.html" %}
+{% load static %}
 
 {% block title %}{% if name %}{{ name }} – {% endif %} Notesapp REST API{% endblock %}
 
@@ -7,7 +8,7 @@
 
 {% block branding %}
     <a href="/" class="navbar-brand">
-        <img class="bi me-2" width="48" height="48"  alt="Notes App API" src="{% static 'notes/logo.svg' %}">
+        <img class="bi me-2" width="36" height="36"  alt="Notes App API" src="{% static 'notes/logo.svg' %}">
     </a>
 {% endblock %}
 
