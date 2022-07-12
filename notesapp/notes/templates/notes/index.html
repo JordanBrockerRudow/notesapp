@@ -2,7 +2,7 @@
 {% load notes_extras %}
 {% block content %}
 <!-- Page Header / Page Title  -->
-    <h2>Notes</h2>
+    <h2 class="text-center mb-3">Notes</h2>
     {% for post in posts %}
     {% div cls="row border-bottom m-1 p-1" %}
         {% div cls="col" %}
@@ -10,18 +10,18 @@
         <h3>{{ post.title }}</h3>
         <!-- Image Thumbnail (max dimension: 100 pixels) -->
         {% if post.hero_image %}
-        <img src="{{ post.hero_image.thumbnail.100x100.url }}"/>
+        <img alt="post image" class="float-start me-2" width="150" height="125" src="{{ post.hero_image.thumbnail.100x100.url }}"/>
         {% endif %}
             <!-- Author Name and Date published -->
-            {% include "notes/notes-byline.html" %} 
-            <!-- Preview of main content (summary field) -->
-            <p>{{ post.summary }}</p>
-            <p>
-                <!-- Word Count - IE: '(500 Words)' -->
-                ({{ post.content|wordcount }} words)
-                <!-- Read More link to detail view of post -->
-                <a href="{% url "notes-detail" post.slug %}" class="txt-bc">Read More</a>
-            </p> 
+                <small>{% include "notes/notes-byline.html" %}</small>
+            
+                <!-- Preview of main content (summary field) -->
+                <p>{{ post.summary }} <br>
+                    <!-- Word Count - IE: '(500 Words)' -->
+                    ({{ post.content|wordcount }} words)
+                    <!-- Read More link to detail view of post -->
+                    <a href="{% url "notes-detail" post.slug %}" class="txt-bc">Read More</a>
+                </p> 
         {% div cls="end" %}
     {% div cls="end" %}
     {% endfor %}
