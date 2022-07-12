@@ -37,6 +37,14 @@ def author_details(author, current_user):
 
     return format_html('{}{}{}', prefix, name, suffix)
 
+@register.filter
+def user_email(current_user):
+    if not isinstance(user_model):
+        # return empty string as safe default
+        return ''
+    if current_user.is_active:
+        linktag = format_html('<a class="dropdown-item" href="/api/v1/">{}</a>', current_user.email)
+        return format_html('<li>{}</li>', linktag)
 
 # Fetch the five most recent notes
 # Exclude current post being viewed
@@ -55,3 +63,9 @@ def div(cls=''):
         return format_html('</div>')
 
     return format_html('<div class="{}">', cls)
+
+
+
+@register.filter
+def replace_at(email):
+    return str(email).replace('@', '%40')
