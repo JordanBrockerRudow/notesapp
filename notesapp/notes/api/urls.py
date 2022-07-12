@@ -31,7 +31,6 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("users/<str:email>", UserDetail.as_view(), name="api_user_detail"),
-    # Remove specific postlist / postdetail views and replace with router.urls
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
