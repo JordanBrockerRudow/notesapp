@@ -2,34 +2,63 @@
 {% load notes_extras %}
 {% block title %}User Profile{% endblock %}
 {% block content %}
+
+
 {% div cls="container" %}
+<h2 class="mb-4">
+  Profile
+</h2>
+{% div cls="container m-2 px-2" %}
+  {% div cls="row" %}
+    <h3 class="text-center pb-3">
+      User Information
+    </h3>
+  {% div cls="col-5 px-2 me-3" %}
+    <h6 class="float-start">
+      First Name
+    </h6>
+  {% div cls="end" %}
+  {% div cls="col-6 px-2" %}
+    <p class="h5">
+      {{ request.user.first_name }}
+    </p>
+  {% div cls="end" %}
 
-    {% div cls="row m-4" %}
-        <h2>
-            Profile Information  
-        </h2>
-        {% div cls="col" %}
-            {% div cls="card mx-4 p-4" %}
-                <p class="lead"> First Name: {{ request.user.first_name }}</p> <br>
-                <p class="lead"> Last Name: {{ request.user.last_name }}</p>
-            {% div cls="end" %}
-        {% div cls="end" %}
-
-        {% div cls="col" %}
-        <h3>
-                    
-        </h3>
-        
-        {% div cls="end" %}
-
-    {% div cls="end" %}
-
-
-    {% div cls="row m-4" %}
-        {% div cls="col" %}
-            <p><i>Logged in as {{ request.user }}.</i></p>
-            <p><a href="{% url "logout" %}">Log Out</a></p>
-        {% div cls="end" %}
-    {% div cls="end" %}
+  {% div cls="col-5 px-2 me-3" %}
+    <h6 class="float-start">
+      Last Name
+    </h6>
+  {% div cls="end" %}
+  {% div cls="col-6 px-2" %}
+    <p class="h5">
+      {{ request.user.last_name }}
+    </p>
+  {% div cls="end" %}
 {% div cls="end" %}
+  
+{% div cls="row my-4 pb-3" %}
+  <h3 class="text-center pb-3">
+    Contact Information
+  </h3>
+  {% div cls="col-5 px-2 me-3" %}
+    <h6 class="float-start">
+      Email
+    </h6>
+  {% div cls="end" %}
+  {% div cls="col-6 px-2" %}
+    <p class="h5">
+      {{ request.user }}
+    </p>
+  {% div cls="end" %}
+{% div cls="end" %}
+  
+{% div cls="row mt-4 pt-4" %}
+  <a class="btn btn-danger" role="button" href="{% url "logout" %}">Log Out</a>
+{% div cls="end" %}
+{% div cls="end" %}
+{% div cls="end" %}
+
+
+
+
 {% endblock content %}
