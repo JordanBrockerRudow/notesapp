@@ -42,6 +42,7 @@
   </head>
 
   <body>
+    {% load notes_extras %}
     <div id="wrap">
       <div id="main">
         <!-- Header / Nav -->
@@ -69,14 +70,15 @@
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                   {% if request.user.is_active %}
-                    <li><a class="dropdown-item" href="{% url "profile" %}">Profile Status</a></li>
-                    <li><a class="dropdown-item" href="#">Activity</a></li>
+                    <li><a class="dropdown-item" href="/api/v1/users/{{ request.user|replace_at }}">Account Information</a></li>
+                    <li><a class="dropdown-item" href="{% url "profile" %}">Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url "post-mine" %}">Posts</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="{% url "logout" %}">Log Out</a></li>
                   {% else %}
                     <li><a class="dropdown-item" href="{% url "django_registration_register" %}">Register</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="{% url "logout" %}">Log Out</a></li>
+                    <li><a class="dropdown-item" href="{% url "login" %}">Log In</a></li>
                   {% endif %}
                 </ul>
               </div>
