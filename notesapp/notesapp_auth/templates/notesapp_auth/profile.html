@@ -2,11 +2,34 @@
 {% load notes_extras %}
 {% block title %}User Profile{% endblock %}
 {% block content %}
+{% div cls="container" %}
 
-{% div cls="row m-4" %}
-    {% div cls="col" %}
-        <p>Logged in as {{ request.user }}.</p>
-        <p><a href="{% url "logout" %}">Log Out</a></p>
+    {% div cls="row m-4" %}
+        <h2>
+            Profile Information  
+        </h2>
+        {% div cls="col" %}
+            {% div cls="card mx-4 p-4" %}
+                <p class="lead"> First Name: {{ request.user.first_name }}</p> <br>
+                <p class="lead"> Last Name: {{ request.user.last_name }}</p>
+            {% div cls="end" %}
+        {% div cls="end" %}
+
+        {% div cls="col" %}
+        <h3>
+                    
+        </h3>
+        
+        {% div cls="end" %}
+
+    {% div cls="end" %}
+
+
+    {% div cls="row m-4" %}
+        {% div cls="col" %}
+            <p><i>Logged in as {{ request.user }}.</i></p>
+            <p><a href="{% url "logout" %}">Log Out</a></p>
+        {% div cls="end" %}
     {% div cls="end" %}
 {% div cls="end" %}
 {% endblock content %}
