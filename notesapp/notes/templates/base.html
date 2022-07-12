@@ -69,7 +69,6 @@
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                   {% if request.user.is_active %}
-                    <!--<li><a class="dropdown-item" href="{% url "api_user_detail" %}">My Info</a></li>-->
                     <li><a class="dropdown-item" href="{% url "profile" %}">Profile Status</a></li>
                     <li><a class="dropdown-item" href="#">Activity</a></li>
                     <li><hr class="dropdown-divider"></li>
