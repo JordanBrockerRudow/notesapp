@@ -25,7 +25,7 @@ schema_view = get_schema_view(
         default_version="v1",
         description="API for Notesapp Notes",
     ),
-    url=f"https://{os.environ.get('CODIO_HOSTNAME')}-8000.codio.io/api/v1/",
+    url=f"https://127.0.0.1/api/v1/",
     public=True,
 )
 

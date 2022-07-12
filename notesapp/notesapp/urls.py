@@ -15,7 +15,7 @@ from notesapp_auth.forms import NotesappRegistrationForm
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', notes.views.index),
-    path("post/<slug>/", notes.views.post_detail, name="notes-detail"),
+    path("note/<slug>/", notes.views.post_detail, name="notes-detail"),
     path("ip/", notes.views.get_ip),
     path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/", include("allauth.urls")),
@@ -27,7 +27,7 @@ urlpatterns = [
     path("accounts/profile/", notesapp_auth.views.profile, name="profile"),
     path("accounts/", include("django_registration.backends.activation.urls")),
     path("api/v1/", include("notes.api.urls")),
-    path("post-table/", notes.views.post_table, name="notes-post-table"),
+    path("note-table/", notes.views.post_table, name="notes-post-table"),
 ]
 
 # Map the path __debug__/ to the DJDT's URL's, but only in debug mode.
