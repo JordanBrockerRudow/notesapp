@@ -9,49 +9,63 @@
   Profile Information
 </h2>
 {% div cls="container m-2 px-2 pt-4" %}
-  {% div cls="row px-4 text-center" %}
+  {% div cls="row px-4" %}
 
-  {% div cls="col-4 offset-1 px-2 me-3" %}
-    <h6 class="float-start">
-      First Name
-    </h6>
-  {% div cls="end" %}
-  {% div cls="col-5 px-2" %}
-    <p class="fs-5">
-      {{ request.user.first_name }}
-    </p>
-  {% div cls="end" %}
+    {% div cls="col-8 offset-2 px-4" %}
 
-  {% div cls="col-4 offset-1 px-2 me-3" %}
-    <h6 class="float-start">
-      Last Name
-    </h6>
-  {% div cls="end" %}
-  {% div cls="col-4 px-2" %}
-    <p class="fs-5">
-      {{ request.user.last_name }}
-    </p>
-  {% div cls="end" %}
+      {% div cls="d-flex p-2 bd-highlight justify-content-between" %}
+
+      {% div cls="p-2" %}
+        <h5>First Name </h5>
+      {% div cls="end" %}
+
+      {% div cls="p-2" %}
+        <p class="h5">{{ request.user.first_name }}</p>
+      {% div cls="end" %}
+
+      {% div cls="end" %}
+
+      {% div cls="d-flex p-2 bd-highlight justify-content-between" %}
+
+      {% div cls="p-2" %}
+        <h5>Last Name </h5>
+      {% div cls="end" %}
+
+      {% div cls="p-2" %}
+        <p class="h5">{{ request.user.last_name }}</p>
+      {% div cls="end" %}
+
+      {% div cls="end" %}
+
+      {% div cls="d-flex p-2 bd-highlight justify-content-between" %}
+
+      {% div cls="p-2" %}
+        <h5>Email Address </h5>
+      {% div cls="end" %}
+
+      {% div cls="p-2" %}
+        <p class="h5">{{ request.user }}</p>
+      {% div cls="end" %}
+
+      {% div cls="end" %}
+
+    {% div cls="end" %}
+ 
   
-  {% div cls="col-4 offset-1 px-2 me-3" %}
-    <h6 class="float-start">
-      Email
-    </h6>
-  {% div cls="end" %}
-  {% div cls="col-5 px-2" %}
-    <p class="fs-5">
-      {{ request.user }}
-    </p>
-  {% div cls="end" %}
+
 {% div cls="end" %}
-  
+
 {% div cls="row mt-4 pt-4 text-center" %}
     {% div cls="col-7 offset-2 pt-3" %}
       <a class="btn btn-danger" role="button" href="{% url "logout" %}">Log Out</a>
     {% div cls="end" %}
 {% div cls="end" %}
+
 {% div cls="end" %}
+
+
 {% div cls="end" %}
+
 
 
 
