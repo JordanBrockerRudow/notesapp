@@ -53,6 +53,7 @@ class Dev(Configuration):
         'drf_yasg',
         'django_filters',
         'versatileimagefield',
+        'django_extensions'
     ]
 
 
