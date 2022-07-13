@@ -16,7 +16,6 @@
     <style>
       html, body {
         height: 100%;
-        @include bg-dark;
       }
 
       #wrap {
@@ -35,7 +34,6 @@
         /* negative value of footer height */
         height: 180px;
         clear: both;
-        
       }
     </style>
 
@@ -50,7 +48,7 @@
           <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
               <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                <img class="bi me-2" width="48" height="48" src="{% static 'notes/logo/logo.svg' %}">
+                <img class="bi me-2" width="48" height="48" src="{% static 'notes/logo/logo_light.svg' %}">
               </a>
       
               <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -59,10 +57,6 @@
                 <li><a class="nav-link px-2 link-dark" href="{% url "api-root" %}">API</a></li>
                 <li><a class="nav-link px-2 link-dark" href="{% url "schema-swagger-ui" %}">Documentation</a></li>
               </ul>
-      
-              <!--<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-              </form>-->
       
               <div class="dropdown text-end">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
