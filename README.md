@@ -18,8 +18,9 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
+<!-- [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
+-->
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
@@ -29,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/JordanBrockerRudow/notesapp">
-    <img src="docs/images/logo.PNG" alt="Logo" width="80" height="80">
+    <img src="docs/images/logo/logo_light.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Notes App</h3>
@@ -72,7 +73,7 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <!--<li><a href="#acknowledgments">Acknowledgments</a></li>-->
   </ol>
 </details>
 
@@ -83,7 +84,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
+<!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description` -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -92,6 +93,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 ### Built With
 
 * [Django](https://djangoproject.com)
+* [Django Rest Framework](https://www.django-rest-framework.org/)
 * [React.js](https://reactjs.org/)
 * [Bootstrap](https://getbootstrap.com)
 
@@ -101,34 +103,33 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Setting up the development environment is extremely simple. Just clone the project, add the required dependencies to your virtual environment and then run the server:
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+All required dependencies can be found in `requirements.txt`
+  * 
   ```sh
-  npm install npm@latest -g
+    pip install requirements.txt
   ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/JordanBrockerRudow/notesapp.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
+2. Check if you need to make migrations:
+```sh
+  python manage.py makemigrations
+```
+3. Migrate
+```sh
+  python manage.py migrate
+```
+4. Run the server
+```sh
+  python manage.py runserver
+```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -138,7 +139,7 @@ This is an example of how to list things you need to use the software and how to
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://github.com/JordanBrockerRudow/notesapp/tree/main/docs)_
+_For more examples, please refer to the [Documentation](https://github.com/JordanBrockerRudow/notesapp/tree/main/docs/api/swagger.json)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -147,9 +148,9 @@ _For more examples, please refer to the [Documentation](https://github.com/Jorda
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Notes App
-- [ ] Notes API
-- [ ] Notes App Authentication
+- [x] Notes App
+- [x] Notes API
+- [x] Notes App Authentication
     - [ ] OAuth2 integration
 
 See the [open issues](https://github.com/JordanBrockerRudow/notesapp/issues) for a full list of proposed features (and known issues).
@@ -194,29 +195,29 @@ Project Link: [https://github.com/JordanBrockerRudow/notesapp](https://github.co
 
 
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+<!-- ACKNOWLEDGMENTS
 
 * []()
 * []()
 * []()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+-->
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/JordanBrockerRudow/notesapp.svg?style=flat
 [contributors-url]: https://github.com/JordanBrockerRudow/notesapp/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/JordanBrockerRudow/notesapp.svg?style=flat
 [forks-url]: https://github.com/JordanBrockerRudow/notesapp/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/JordanBrockerRudow/notesapp.svg?style=flat
 [stars-url]: https://github.com/JordanBrockerRudow/notesapp/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/JordanBrockerRudow/notesapp.svg?style=flat
 [issues-url]: https://github.com/JordanBrockerRudow/notesapp/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/JordanBrockerRudow/notesapp.svg?style=flat
 [license-url]: https://github.com/JordanBrockerRudow/notesapp/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
