@@ -60,5 +60,5 @@ def post_detail(request, slug):
 def post_table(request):
     # Updated to include reversed notes-list
     return render(
-        request, "notes/notes-table.html", {"post_list_url": reverse("notes-list")}
+        request, "notes/notes-table.html", {"post_list_url": reverse("post-list")}
     )
