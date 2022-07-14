@@ -1,4 +1,4 @@
-['/api/v1/posts/', '/', '/abadurl/'].forEach(url => {
+['/api/v1/posts/', '/'].forEach(url => {
     fetch(url).then(response => {
       if (response.status !== 200) {
         throw new Error('Invalid status from server: ' + response.statusText)
