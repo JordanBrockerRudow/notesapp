@@ -133,3 +133,4 @@ utils
 # Project secret
 secret.py
 *.Identifier
+notesapp/data
