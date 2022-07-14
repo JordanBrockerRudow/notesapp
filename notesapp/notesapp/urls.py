@@ -14,7 +14,7 @@ from notesapp_auth.forms import NotesappRegistrationForm
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', notes.views.index),
+    path('', notes.views.index, name="home"),
     path("note/<slug>/", notes.views.post_detail, name="notes-detail"),
     path("ip/", notes.views.get_ip),
     path("accounts/", include("django.contrib.auth.urls")),
