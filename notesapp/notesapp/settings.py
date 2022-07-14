@@ -34,6 +34,8 @@ class Dev(Configuration):
     INSTALLED_APPS = [
         'rest_framework',
         'rest_framework.authtoken',
+        'notes.apps.NotesConfig',
+        'notesapp_auth.apps.NotesappAuthConfig',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -41,8 +43,6 @@ class Dev(Configuration):
         'django.contrib.messages',
         'django.contrib.sites',
         'django.contrib.staticfiles',
-        'notes.apps.NotesConfig',
-        'notesapp_auth.apps.NotesappAuthConfig',
         'crispy_forms',
         'crispy_bootstrap5',
         'debug_toolbar',
@@ -150,6 +150,9 @@ class Dev(Configuration):
 
     # Activation key valid for a week
     ACCOUNT_ACTIVATION_DAYS = 7
+
+    # Django Registration - Logout redirect 
+    LOGIN_REDIRECT_URL = 'home'
 
 
     # Internationalization
