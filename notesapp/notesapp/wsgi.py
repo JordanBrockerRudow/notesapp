@@ -11,6 +11,7 @@ import os
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'notesapp.settings')
 os.environ.setdefault('DJANGO_CONFIGURATION', 'Prod')
+os.environ.setdefault('DJANGO_SECRET_KEY', '')
 
 from configurations.wsgi import get_wsgi_application
 
