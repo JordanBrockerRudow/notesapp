@@ -71,7 +71,9 @@ class Dev(Configuration):
     # Debug's toolbar is only shown if IP Address is listed in Django's INTERNAL_IPS setting
 
     INTERNAL_IPS = [
-        '127.0.0.1'
+        '127.0.0.1',
+        'http://observatory.pythonanywhere.com/',
+        'https://observatory.pythonanywhere.com/'
     ]
 
     ROOT_URLCONF = 'notesapp.urls'
@@ -151,7 +153,7 @@ class Dev(Configuration):
     # Activation key valid for a week
     ACCOUNT_ACTIVATION_DAYS = 7
 
-    # Django Registration - Logout redirect 
+    # Django Registration - Logout redirect
     LOGIN_REDIRECT_URL = 'home'
 
 
