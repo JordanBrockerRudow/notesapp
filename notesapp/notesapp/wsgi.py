@@ -15,5 +15,6 @@ os.environ.setdefault('DJANGO_CONFIGURATION', 'Prod')
 os.environ.setdefault('DJANGO_SECRET_KEY', SECRET_KEY)
 
 from configurations.wsgi import get_wsgi_application
+from django.contrib.staticfiles.handlers import StaticFilesHandler
 
-application = get_wsgi_application()
+application = StaticFilesHandler(get_wsgi_application())
