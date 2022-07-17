@@ -12,6 +12,21 @@ register = template.Library()
 logger = logging.getLogger(__name__)
 user_model = get_user_model()
 
+# Aurhor profile details (Returns First Name or Full Name)
+@register.filter
+def author_profile(author, current_user):
+    if not isinstance(author, user_model):
+        return ""
+    if author == current_user:
+        return format_html("<strong>me</strong>")
+
+    if author.first_name and author.last_name:
+        name = f"{author.first_name} {author.last_name}"
+
+    else:
+        name = f"{author.username}"
+
+    return format_html('{}', name)
 
 # Author Details (Name / Email Link) and Date of Notes
 @register.filter
