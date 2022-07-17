@@ -10,4 +10,5 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'notesapp.settings'
 os.environ['DJANGO_CONFIGURATION'] = 'Prod'
 
 from configurations.wsgi import get_wsgi_application
-application = get_wsgi_application()
+from django.contrib.staticfiles.handlers import StaticFilesHandler
+application = StaticFilesHandler(get_wsgi_application())
