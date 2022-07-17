@@ -16,6 +16,10 @@ from notes.api.views import PostViewSet, UserDetail, TagViewSet
 
 # Instantiate Router for ViewSets
 router = DefaultRouter()
+router.get_api_root_view().cls.__name__ = "Notesapp API"
+router.get_api_root_view().cls.__doc__ = "API for Notesapp Notes"
+
+
 router.register("tags", TagViewSet)
 router.register("posts", PostViewSet)
 
@@ -25,7 +29,7 @@ schema_view = get_schema_view(
         default_version="v1",
         description="API for Notesapp Notes",
     ),
-    url=f"http://127.0.0.1:8000/api/v1/",
+    url=f"http://observatory.pythonanywhere.com/api/v1/",
     public=True,
 )
 
