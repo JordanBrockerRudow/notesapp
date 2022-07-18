@@ -8,7 +8,7 @@
     {% load static %}
     <link rel="icon" type="image/x-icon" href="{% static 'notes/logo/favicon.ico' %}"/>
 
-    <title>{% block title %}Home |{% endblock %}NotesApp</title>
+    <title>{% block title %}Home |{% endblock %} NotesApp</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/zephyr/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +35,11 @@
         height: 180px;
         clear: both;
       }
+
+      {% block style %}
+
+
+      {% endblock %}
     </style>
 
   </head>
@@ -50,15 +55,15 @@
               <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                 <img class="bi me-2" width="48" height="48" src="{% static 'notes/logo/logo_light.svg' %}">
               </a>
-      
+
               <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                
+
                 <li><a href="/" class="nav-link px-2 link-dark">Home</a></li>
                 <li><a class="nav-link px-2 link-dark" href="{% url "notes-post-table" %}">Notes Table</a></li>
                 <li><a class="nav-link px-2 link-dark" href="{% url "api-root" %}">API</a></li>
                 <li><a class="nav-link px-2 link-dark" href="{% url "schema-swagger-ui" %}">Documentation</a></li>
               </ul>
-      
+
               <div class="dropdown text-end">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                   <img alt="user icon" width="32" height="32" class="rounded-circle" src="{% static 'notes/icons/user_icon.svg' %}">
