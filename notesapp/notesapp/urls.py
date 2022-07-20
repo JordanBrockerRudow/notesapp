@@ -11,10 +11,13 @@ import notesapp_auth.views
 from django_registration.backends.activation.views import RegistrationView
 from notesapp_auth.forms import NotesappRegistrationForm
 
+import flashcards.views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', notes.views.index, name="home"),
+    path('flashcards/', flashcards.views.flashcard_index, name="flashcards-index"),
     path("note/<slug>/", notes.views.post_detail, name="notes-detail"),
     path("ip/", notes.views.get_ip),
     path("accounts/", include("django.contrib.auth.urls")),
