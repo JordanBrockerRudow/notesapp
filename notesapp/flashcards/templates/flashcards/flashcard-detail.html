@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% load flashcard_extras %}
+{% block title %} Flashcard | {% endblock %}
+
+{% block style %}
+
+  .flash-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 2px solid #222;
+    perspective: 1000px; /* 3D */
+  }
+
+  .flash-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flash-card:hover .flash-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flash-card-front, .flash-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .flash-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+
+  .flash-card-back {
+    background-color: #bbb;
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+{% endblock %}
+
+{% block content %}
+  {% if cards %}
+    {% for card in cards %}
+      <div class="flash-card">
+        <div class="flash-card-inner">
+          <div class="flash-card-front">
+            <p>
+              {{ card.question }}
+            </p>
+          </div>
+          <div class="flash-card-back">
+            <p>
+              {{ card.answer }}
+            </p>
+           </div>
+        </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+
+{% endblock %}
