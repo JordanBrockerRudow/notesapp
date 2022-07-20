@@ -44,4 +44,4 @@ class Card(models.Model):
 
 
     def __str__(self):
-        return self.title
+        return self.question
