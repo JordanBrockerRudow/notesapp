@@ -6,6 +6,7 @@ import dj_database_url
 import logging
 
 from .secret import SECRET_KEY
+from .localip import LOCAL_IP_ADDRESS
 
 from datetime import timedelta
 
@@ -71,9 +72,11 @@ class Dev(Configuration):
     # Debug's toolbar is only shown if IP Address is listed in Django's INTERNAL_IPS setting
 
     INTERNAL_IPS = [
+        'localhost',
         '127.0.0.1',
         'http://observatory.pythonanywhere.com/',
-        'https://observatory.pythonanywhere.com/'
+        'https://observatory.pythonanywhere.com/',
+        LOCAL_IP_ADDRESS
     ]
 
     ROOT_URLCONF = 'notesapp.urls'
