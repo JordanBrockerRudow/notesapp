@@ -1,3 +1,6 @@
 from django.contrib import admin
+from flashcards.models import Card, Cardset
 
-# Register your models here.
+
+admin.site.register(Card)
+admin.site.register(Cardset)
