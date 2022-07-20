@@ -17,7 +17,7 @@ import flashcards.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', notes.views.index, name="home"),
-    path('flashcards/', flashcards.views.flashcard_index, name="flashcards-index"),
+    path('flashcards/', flashcards.views.FlashCardsIndexView.as_view(), name="flashcards-index"),
     path("note/<slug>/", notes.views.post_detail, name="notes-detail"),
     path("ip/", notes.views.get_ip),
     path("accounts/", include("django.contrib.auth.urls")),
