@@ -13,9 +13,8 @@ logger = logging.getLogger(__name__)
 # Main Page for Flashcards
 def flashcard_index(request):
     # Returns Flashcard Question, Cardset, Datetime
-    cards = Card.objects.filter(published_at__lte=timezone.now()).select_related("cardsets")
+    cards = Card.objects.all()
     # Log quantity of posts
     logger.debug("Got %d flashcards", len(cards))
 
     return render(request, "flashcards/flashcard.html", {"cards": cards})
-
