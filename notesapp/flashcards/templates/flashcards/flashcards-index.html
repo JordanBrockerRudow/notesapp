@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% load flashcard_extras %}
+{% block title %} Flashcards | Index | {% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row mb-4 p-4">
+      <div class="col-12 text-center">
+        <h2>Flashcards</h2>
+      </div>
+    </div>
+
+    {% if cards %}
+      {% for card in cards %}
+        <div class="flash-card">
+          <div class="flash-card-inner">
+            <div class="flash-card-front">
+              <p>
+                {{ card.question }}
+              </p>
+            </div>
+            <div class="flash-card-back">
+              <p>
+                {{ card.answer }}
+              </p>
+             </div>
+          </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+
+  </div>
+
+{% endblock %}
