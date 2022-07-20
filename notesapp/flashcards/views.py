@@ -17,5 +17,5 @@ def flashcard_index(request):
     # Log quantity of posts
     logger.debug("Got %d flashcards", len(cards))
 
-    return render(request, "notes/index.html", {"cards": cards})
+    return render(request, "flashcards/flashcard.html", {"cards": cards})
 
