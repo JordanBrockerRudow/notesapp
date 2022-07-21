@@ -20,8 +20,8 @@ def author_profile(author, current_user):
     if author == current_user:
         return format_html("<strong>me</strong>")
 
-    if author.first_name and author.last_name:
-        name = f"{author.first_name} {author.last_name}"
+    if author.first_name or author.first_name and author.last_name:
+        name = f"{author.first_name}"
 
     else:
         name = f"{author.username}"
