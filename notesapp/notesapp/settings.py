@@ -36,6 +36,7 @@ class Dev(Configuration):
         'rest_framework',
         'rest_framework.authtoken',
         'notes.apps.NotesConfig',
+        'flashcards.apps.FlashcardsConfig',
         'notesapp_auth.apps.NotesappAuthConfig',
         'django.contrib.admin',
         'django.contrib.auth',
@@ -54,8 +55,7 @@ class Dev(Configuration):
         'drf_yasg',
         'django_filters',
         'versatileimagefield',
-        'django_extensions',
-        'flashcards'
+        'django_extensions'
     ]
 
 
