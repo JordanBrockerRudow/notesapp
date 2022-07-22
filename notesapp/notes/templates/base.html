@@ -68,7 +68,11 @@
 
               <div class="dropdown text-end">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img alt="user icon" width="32" height="32" class="rounded-circle" src="{% static 'notes/icons/user_icon.svg' %}">
+                  {% if request.user.is_active %}
+                    <img alt="user icon" width="32" height="32" class="rounded-circle" src="{{ request.user.avatar.url }}">
+                  {% else %}
+                    <img alt="user icon" width="32" height="32" class="rounded-circle" src="{% static 'notes/icons/user_icon.svg' %}">
+                  {% endif %}
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                   {% if request.user.is_active %}
