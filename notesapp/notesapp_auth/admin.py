@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 class NotesappUserAdmin(UserAdmin):
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        (_("Personal info"), {"fields": ("first_name", "last_name")}),
+        (_("Personal info"), {"fields": ("first_name", "last_name", "avatar")}),
         (
             _("Permissions"),
             {
@@ -31,7 +31,7 @@ class NotesappUserAdmin(UserAdmin):
             },
         ),
     )
-    list_display = ("email", "first_name", "last_name", "is_staff")
+    list_display = ("email", "first_name", "last_name", "is_staff", "avatar")
     search_fields = ("email", "first_name", "last_name")
     ordering = ("email",)
 
