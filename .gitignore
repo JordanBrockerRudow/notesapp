@@ -136,3 +136,4 @@ secret.py
 notesapp/data
 notesapp/wsgi.py
 notesapp/settings.py
+notesapp/media/*/*
