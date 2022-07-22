@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
+from versatileimagefield.fields import VersatileImageField, PPOIField
 
 
 class NotesappUserManager(UserManager):
@@ -39,6 +40,16 @@ class User(AbstractUser):
         _("email address"),
         unique=True,
     )
+    avatar = VersatileImageField(
+        upload_to="user_avatars",
+        ppoi_field="ppoi",
+        null=True,
+        blank=True
+    )
+    # https://django-versatileimagefield.readthedocs.io/en/latest/model_integration.html#model-integration
+
+    ppoi = PPOIField(null=True, blank=True)
+    # https://django-versatileimagefield.readthedocs.io/en/latest/specifying_ppoi.html#the-ppoifield
     # set to a new instance of the user manager
     objects = NotesappUserManager()
     # Since username is required, replace with email.
