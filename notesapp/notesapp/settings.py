@@ -37,6 +37,7 @@ class Dev(Configuration):
         'rest_framework.authtoken',
         'notes.apps.NotesConfig',
         'flashcards.apps.FlashcardsConfig',
+        'notes_api.apps.NotesApiConfig',
         'notesapp_auth.apps.NotesappAuthConfig',
         'django.contrib.admin',
         'django.contrib.auth',
@@ -74,10 +75,7 @@ class Dev(Configuration):
 
     INTERNAL_IPS = [
         'localhost',
-        '127.0.0.1',
-        'http://observatory.pythonanywhere.com/',
-        'https://observatory.pythonanywhere.com/',
-        LOCAL_IP_ADDRESS
+        '127.0.0.1'
     ]
 
     ROOT_URLCONF = 'notesapp.urls'
