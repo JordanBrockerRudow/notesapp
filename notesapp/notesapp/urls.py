@@ -12,6 +12,7 @@ from django_registration.backends.activation.views import RegistrationView
 from notesapp_auth.forms import NotesappRegistrationForm
 
 import flashcards.views
+import notes_api.views
 
 
 urlpatterns = [
@@ -29,6 +30,7 @@ urlpatterns = [
     ),
     path("accounts/profile/", notesapp_auth.views.profile, name="profile"),
     path("accounts/", include("django_registration.backends.activation.urls")),
+    path("api/", notes_api.views.NotesAPIHome.as_view(), name="api-index"),
     path("api/v1/", include("notes.api.urls")),
     path("note-table/", notes.views.post_table, name="notes-post-table"),
 ]
