@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% load flashcards_extras crispy_forms_tags %}
+{% block content %}
+  <div class="container">
+    {% if request.user.is_active %}
+      <h4>Create a New Flashcard</h4>
+      {% crispy flashcard_form %}
+    {% endif %}
+  </div>
+{% endblock %}
