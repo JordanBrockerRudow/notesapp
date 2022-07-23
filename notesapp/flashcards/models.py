@@ -29,8 +29,6 @@ class Card(models.Model):
 
     cardsets = models.ManyToManyField(Cardset, related_name="cards")
 
-    tags = models.ManyToManyField(Tag, related_name="flashcards")
-
     card_image = VersatileImageField(
         upload_to="card_images",
         ppoi_field="ppoi",

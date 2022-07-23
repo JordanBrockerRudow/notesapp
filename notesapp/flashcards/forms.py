@@ -9,7 +9,7 @@ from flashcards.models import Card
 class CardForm(forms.ModelForm):
   class Meta:
     model = Card
-    fields = ["question", "answer", "tags", "cardsets", "card_image"]
+    fields = ["question", "answer", "cardsets", "card_image"]
 
   def __init__(self, *args, **kwargs):
     super(CardForm, self).__init__(*args, **kwargs)
