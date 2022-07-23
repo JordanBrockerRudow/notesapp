@@ -69,7 +69,7 @@
               <div class="dropdown text-end">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                   {% if request.user.is_active %}
-                    <img alt="user icon" width="32" height="32" class="rounded-circle" src="{{ request.user.avatar.url }}">
+                    <img alt="{{ request.user.first_name }} {{ request.user.last_name }}" width="32" height="32" class="rounded-circle" src="{{ request.user.avatar.url }}">
                   {% else %}
                     <img alt="user icon" width="32" height="32" class="rounded-circle" src="{% static 'notes/icons/user_icon.svg' %}">
                   {% endif %}
