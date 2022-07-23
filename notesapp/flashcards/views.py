@@ -28,6 +28,6 @@ class FlashCardsIndexView(LoginRequiredMixin, View):
 class CardsetIndexView(LoginRequiredMixin, View):
     def get(self, request):
         cardsets = Cardset.objects.all()
-        logger.debug("Got %d flashcards", len(cardsets))
+        logger.debug("Got %d cardsets", len(cardsets))
         context = {'cardsets':cardsets}
         return render(request, template_name='flashcards/cardsets-list.html', context=context)
