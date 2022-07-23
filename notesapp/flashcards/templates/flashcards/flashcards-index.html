@@ -4,12 +4,19 @@
 {% block title %} Flashcards | Index | {% endblock %}
 
 {% block style %}
+  .bg-offwhite {
+    background-color: #f3f3f3ff;
+  }
+  .text-black {
+    color: #222;
+  }
 
   .flash-card {
     background-color: transparent;
     width: 300px;
     height: 200px;
     border: 2px solid #222;
+    border-radius: 25px;
     perspective: 1000px; /* 3D */
   }
 
@@ -34,14 +41,7 @@
     backface-visibility: hidden;
   }
 
-  .flash-card-front {
-    background-color: #bbb;
-    color: black;
-  }
-
   .flash-card-back {
-    background-color: #bbb;
-    color: white;
     transform: rotateY(180deg);
   }
 
@@ -58,15 +58,15 @@
     {% if cards %}
       {% for card in cards %}
         <div class="flash-card">
-          <div class="flash-card-inner">
-            <div class="flash-card-front">
+          <div class="flash-card-inner bg-offwhite">
+            <div class="bg-offwhite text-black">
               <p class="align-middle my-4 py-3">
-                  {{ card.question }}
+                  {{ card.question|safe }}
               </p>
             </div>
-            <div class="flash-card-back">
+            <div class="flash-card-back bg-offwhite text-black">
               <p class="align-middle my-4 py-3">
-                  {{ card.answer }}
+                  {{ card.answer|safe }}
               </p>
              </div>
           </div>

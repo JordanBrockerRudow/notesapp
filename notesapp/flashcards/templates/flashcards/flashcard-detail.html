@@ -54,12 +54,12 @@
         <div class="flash-card-inner">
           <div class="flash-card-front">
             <p class="my-3 py-3">
-              {{ card.question }}
+              {{ card.question|safe }}
             </p>
           </div>
           <div class="flash-card-back">
             <p class="my-3 py-3">
-              {{ card.answer }}
+              {{ card.answer|safe }}
             </p>
            </div>
         </div>
